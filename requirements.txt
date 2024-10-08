@@ -1,0 +1,5 @@
+Django==3.2.18
+pandas==1.5.1
+pandas==1.2.4
+reportlab==3.6.12
+~andas==1.2.4
