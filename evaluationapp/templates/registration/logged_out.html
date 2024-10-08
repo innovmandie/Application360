@@ -1,0 +1,10 @@
+Edit the registration/logged_out.html template and add the following code to it:
+{% extends "base.html" %}
+{% block title %}Logged out{% endblock %}
+{% block content %}
+ <div class="container-fluid" style="margin-right: 100px;">
+ <p>Vous êtes déconnecté
+ Vous <a href="{% url 'login' %}">pouvez vous reconnecter</a>.</p>
+ <p>Ou vous rendre à la page d'accueil</p>
+ </div>
+{% endblock %}

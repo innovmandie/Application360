@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block title %}Questions level1 Page{% endblock %}
+{% block content %}
+<div class="container-fluid" style="margin-left:40px">
+    <br>
+    <div class="container" style="width: 600px;">
+      <p><strong>Vous devez donner une note de 1 à 5 pour répondre aux questions</strong></p>
+      <p>1 : pas du tout d'accord. 5 : Tout à fait d'accord</p>
+      <h6>Questions Encadrés</h6>
+      <form  method="post" action="">
+        {% csrf_token %}
+        <p>Evaluation titre :</p><p>{{ form.evaluation_titre}}</p>
+        <p>Nom :</p><p>{{ form.nom_contributeur}}</p>
+        <p>Nom evalué: </p><p>{{ form.nom_evalue }}</p>
+        <p>Question 1 : Votre manageur vous fixe-t-il des objectifs clairs ? Vous donne-t-il les moyens de les réaliser ?
+          Met-il en place un accompagnement régulier et un suivi de vos missions ?</p>
+        <p>{{ form.note_1 }}</p><br>
+        <p>Souhaitez vous développer ? Donnez quelques exemples ?</p>
+        <p>Sinon, vous pouvez mentionner RAS dans le cadre ci-dessous.</p>
+        {{ form.commentaire_note_1 }}<hr>
+        <p>Question 2 : Vous permet-il de développer vos compétences et de progresser dans vos apprentissages ?</p>
+          <p>{{ form.note_2 }}</p>
+          <br>
+        <p>Souhaitez vous développer ? Donnez quelques exemples ?</p>
+        <p>Sinon, vous pouvez mentionner RAS dans le cadre ci-dessous.</p>
+        {{ form.commentaire_note_2 }}<hr>
+        <p>Question 3 : Bénéficiez-vous de signes de reconnaissance et de valorisation ?</p>
+          <p>{{ form.note_3}}</p>
+          <br>
+        <p>Souhaitez vous développer ? Donnez quelques exemples ?</p>
+        <p>Sinon, vous pouvez mentionner RAS dans le cadre ci-dessous.</p>
+        {{ form.commentaire_note_3 }}<hr>
+        <p>Question 4 : Votre manageur met-il en place un management inclusif où votre avis est demandé sur vos missions ? 
+          Vous soutient-il en cas de difficulté ou de pic d'activité ?</p>
+        <p>{{ form.note_4 }}</p>
+        <br>
+        <p>Souhaitez vous développer ? Donnez quelques exemples ?</p>
+        <p>Sinon, vous pouvez mentionner RAS dans le cadre ci-dessous.</p>
+        {{ form.commentaire_note_4 }}<hr>
+        <p>Question 5 : Votre manageur vous offre t-il un environnement de travail motivant et sécurisant ?</p>
+        <p>{{ form.note_5 }}</p>
+        <br>
+        <p>Souhaitez vous développer ? Donnez quelques exemples ?</p>
+        <p>Sinon, vous pouvez mentionner RAS dans le cadre ci-dessous.</p>
+        {{ form.commentaire_note_5 }}<hr>
+        <p>Question 6 : Pour conclure comment évaluez-vous le travail de l'évalué ? </p>
+         <p>{{ form.note_6}}</p>
+         <br>
+         <p>Souhaitez vous développer ? Donnez quelques exemples ?</p>
+         <p>Sinon, vous pouvez mentionner RAS dans le cadre ci-dessous.</p>
+         {{ form.commentaire_note_6 }}<hr>
+         <button class="fr-btn" type="submit">Enregistrer</button>
+    
+      </form>
+    </div>
+      </div>
+
+ 
+{% endblock %}

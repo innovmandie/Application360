@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block title %}Questions Page{% endblock %}
+{% block content %}
+<div class="container-fluid" style="margin-left:200px">
+    <br>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm">
+          <h4>Lors des réponses aux questions</h4>
+          <p style="text-align: justify">Une posture de bienveillance et de commentaires formulés positivement<br>
+            (marge d'amélioration plutôt que reproches) et argumentés
+              (des exemples<br>
+               précis plutôt que des jugements ou ressentis), sont attendus.</p>
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          {% if current_username == "ContributeurBeneficiaire" %}
+          <h6>Vous êtes contributeur Bénéficiaire </h6>
+          <div class="col">
+            <a href="{% url 'questionbeneficiare' %}" target="_self" class="fr-btn" id="custom_link" style="background-color: #e6ad32; width: 200px;color:white; padding:7px">Evaluation participation</a>
+          </div>
+        </div>
+      </div>
+      <br>
+      {% else %}
+      <p></p>
+      {% endif %}
+          
+      <div class="row">
+        <div class="col">
+          {% if current_username == "ContributeurCollegue" %}
+          <h6>Vous êtes contributeur En lien fonctionnel </h6>
+          <div class="col">
+            <a href="{% url 'questionfonctionnel' %}" class="fr-btn" style="background-color: #14af81; width: 200px;color:white; padding:7px">Evaluation participation</a>
+          </div>
+        </div>
+      </div>
+      <br>
+      {% else %}
+      <p></p>
+      {% endif %}
+         
+      <div class="row">
+        <div class="col">
+          {% if current_username == "ContributeurAgent" %}
+          <h6>Vous êtes contributeur  Encadré</h6>
+          <div class="col">
+            <a href="{% url 'questionencadres' %}" class="fr-btn" style="background-color: #32ade6; width: 200px;color:white; padding:7px">Evaluation participation</a>
+          </div>
+        </div>
+    </div>
+      <br>
+      {% else %}
+      <p></p>
+      {% endif %}
+          
+      
+      </div>
+    
+{% endblock %}

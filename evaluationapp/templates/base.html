@@ -1,0 +1,265 @@
+{% load static %}
+
+
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>{% block title %}Application evaluation{% endblock %}</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+
+     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <link rel="stylesheet" href="{% static './dsfr/dsfr.min.css' %}">
+      <link rel="stylesheet" href="{% static './utility/utility.min.css' %}">
+      <script src="{% static 'main.js' %}" defer></script>
+      <meta name="theme-color" content="#000091">
+      <!-- Défini la couleur de thème du navigateur (Safari/Android) -->
+      <link rel="apple-touch-icon" href="{% static './favicon/apple-touch-icon.png' %}"><!-- 180×180 -->
+      <link rel="icon" href="{% static './favicon/favicon.svg' %}" type="image/svg+xml">
+      <link rel="shortcut icon" href="{% static './favicon.ico' %}" type="image/x-icon"><!-- 32×32 -->
+
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+     <script>
+       window['dsfr'] = {
+         // verbose: true,
+         // production: true,
+         // mode: 'manual',
+       };
+       
+     </script>
+       <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/themes/prism.min.css" rel="stylesheet" />
+       <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/plugins/toolbar/prism-toolbar.min.css" rel="stylesheet" />
+
+
+    <style>
+    .material-icons.star-icon {
+	color: lightgrey;
+	font-size: 48px;
+	cursor: pointer;
+}
+
+.fr-display-button {
+position: fixed;
+bottom: 3.5rem;
+right: 2rem;
+}
+
+@media screen and (-ms-high-contrast: active),
+(-ms-high-contrast: none) {
+
+/* IE10+ specific styles go here */
+.example-controls {
+  display: none;
+}
+}
+html.is-changing .transition-fade {
+        transition: opacity 0.25s;
+        opacity: 1;
+        transform: translateX(0);
+        transform-origin: left;
+      }
+      html.is-animating .transition-fade {
+        opacity: 0;
+        transform : translateX(100%);
+      }
+
+      html.is-leaving .transition-fade{
+        opacity:0;
+      } 
+
+
+#regForm {
+    background-color: #ffffff;
+    margin: 0px auto;
+    font-family: Raleway;
+    padding: 40px;
+    border-radius: 10px
+}
+
+#register{
+
+  color: #6A1B9A;
+}
+
+h1 {
+    text-align: center
+}
+
+input.notation {
+    padding: 10px;
+    width: 20%;
+    font-size: 17px;
+    font-family: 'Marianne';
+    border: 1px solid #5c5959;
+    border-radius: 10px;    
+}
+input.notation2 {
+    padding: 10px;
+    width: 40%;
+    font-size: 17px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border: 1px solid #5c5959;
+    border-radius: 4px;    
+}
+
+input.notation3 {
+    padding: 10px;
+    width: 100%;
+    height: 100px;
+    font-size: 17px;
+    font-family: 'Marianne';
+    border: 1px solid #5c5959;
+    border-radius: 4px;    
+}
+
+
+
+.tab input:focus{
+
+  border:1px solid #6a1b9a !important;
+  outline: none;
+}
+
+input.invalid {
+ 
+    border:1px solid #e03a0666;
+}
+
+.tab {
+    display: none
+}
+
+.a:hover{
+  background-color: yellow;
+}
+
+    
+</style>
+
+</head>
+
+<body>
+    
+
+<!--      code de la page     -->
+<div id="container-fluid">
+  <header role="banner" class="fr-header">
+    <div class="fr-header__body">
+        <div class="fr-container">
+            <div class="fr-header__body-row">
+                <div class="fr-header__brand fr-enlarge-link">
+                    <div class="fr-header__brand-top">
+                        <div class="fr-header__logo">
+                            <p class="fr-logo">
+                                Prefet<br>
+                                 de la Région<br>
+                                  Normande
+                                <br>SGAR
+                            </p>
+              <img src="{% static 'evaluation360app/media/PFRH logo.jpg' %}"class="img-fluid" alt="PFRH logo" style="width: 120px; padding:7px; margin:4px">
+              <img src="{% static 'evaluation360app/media/LOGO-INNOVMANDIE-DEF.jpg' %}"class="img-fluid" alt="innovmandie logo" style="width: 120px; padding:7px; margin:4px">
+                </div> 
+                    </div>
+                    <div class="fr-header__service">
+                        <a href="/" title="Accueil - [À MODIFIER - Nom du site / service] - Nom de l’entité (ministère, secrétariat d‘état, gouvernement)">
+                            <h4 class="fr-header__service-title">
+                                Evaluation 360°
+                            </h4>
+                        </a>
+                        <p class="fr-header__service-tagline">Permet d'organiser votre évaluation</p>
+                    </div>
+                    
+                </div>
+
+                
+            </div>
+            <div class="fr-header__menu fr-modal" id="modal-491" aria-labelledby="button-492">
+              <div class="fr-container">
+                  <button class="fr-btn--close fr-btn" aria-controls="modal-491" title="Fermer">
+                      Fermer
+                  </button>
+                  <div class="fr-header__menu-links">
+                  </div>
+                  <nav class="fr-nav" id="navigation-494" role="navigation" aria-label="Menu principal">
+                      <ul class="fr-nav__list">
+                          <li class="fr-nav__item">
+                              <a class="fr-nav__link" href="{% url 'index' %}" target="_self">Accueil</a>
+                          </li>
+                          <li class="fr-nav__item">
+                              <a class="fr-nav__link" href="{% url 'evaluePage' %}" target="_self">Evalué</a>
+                          </li>
+            
+                          <li class="fr-nav__item">
+                              <a class="fr-nav__link" href="{% url 'questionsPage' %}" target="_self">Contributeur</a>
+                          </li>
+                          <li class="fr-nav__item">
+                            <a class="fr-nav__link" href="" target="_self">Contact</a>
+                        </li>
+                      </ul>
+                  </nav>
+              </div>
+          </div>
+        </div>
+    </div>
+</header>
+</div>
+    {% block content %}
+    {% endblock %}
+  <script type="module">
+    import Swup from 'https://unpkg.com/swup@4?module';
+    const swup = new Swup();
+  </script>
+  <footer>
+    <!-- place footer here -->
+  </footer>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/
+  jquery.min.js">
+   </script>
+   <script>
+   $(document).ready(function() {
+   {% block domready %}
+   {% endblock %}
+   });
+  </script>
+    
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <!-- Scripts design etat-->
+    <script type="module" src="{% static './dist/core/core.module.js' %}"></script>
+    <script type="module" src="{% static './dist/component/password/password.module.js' %}"></script>
+    <script type="module" src="{% static './dist/scheme/scheme.module.js'%}"></script>
+    <script type="module" src="{% static './dist/component/accordion/accordion.module.js'%}"></script>
+    <script type="module" src="{% static './dist/component/modal/modal.module.js'%}"></script>
+    <script type="module" src="{% static './dist/component/navigation/navigation.module.js' %}"></script>
+    <script type="module" src="{% static './dist/component/breadcrumb/breadcrumb.module.js' %}"></script>
+    <script type="module" src="{% static './dist/component/display/display.module.js' %}"></script>
+    <script type="module" src="{% static './dist/component/header/header.module.js' %}"></script>
+    <script type="text/javascript" nomodule src="{% static './dist/legacy/legacy.nomodule.js' %}"></script>
+    <script type="text/javascript" nomodule src="{% static './dist/core/core.nomodule.js' %}"></script>
+    <script type="text/javascript" nomodule src="{% static './dist/component/password/password.nomodule.js' %}"></script>
+    <script type="text/javascript" nomodule src="{% static './dist/component/accordion/accordion.nomodule.js' %}"></script>
+    <script type="text/javascript" nomodule src="{% static './dist/component/modal/modal.nomodule.js' %}"></script>
+    <script type="text/javascript" nomodule src="{% static './dist/component/navigation/navigation.nomodule.js' %}"></script>
+    <script type="text/javascript" nomodule src="{% static './dist/component/breadcrumb/breadcrumb.nomodule.js' %}"></script>
+    <script type="text/javascript" nomodule src="{% static './dist/component/display/display.nomodule.js' %}"></script>
+    <script type="text/javascript" nomodule src="{% static './dist/component/header/header.nomodule.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/plugins/toolbar/prism-toolbar.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/plugins/normalize-whitespace/prism-normalize-whitespace.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+</body>
+
+</html>
+

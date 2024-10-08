@@ -1,0 +1,14 @@
+following code:
+{% extends "base.html" %}
+{% block title %}Delete course{% endblock %}
+{% block content %}
+<div class="container-fluid" style="margin-left: 40px;">
+    <br><br>
+    <h4>Effacer "{{ object.titre }}"</h4>
+ <form action="" method="post">
+ {% csrf_token %}
+ <p>êtes vous sûr de vouloir effacer votre évaluation : <br>"{{ object }} " ?</p>
+ <input type="submit" class="fr-btn" value="Confirmer">
+ </form>
+</div>
+{% endblock %}

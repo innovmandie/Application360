@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block title %}Questions level1 Page{% endblock %}
+{% block content %}
+<div class="container-fluid" style="margin-left:40px">
+  <br></br> 
+    <div class="container" style="width: 600px;">
+      <p><strong>Vous devez donner une note de 1 à 5 pour répondre aux questions</strong></p>
+      <p>1 : pas du tout d'accord. 5 : Tout à fait d'accord</p>
+      <h6>Questions bénéficiaires / partenaires :</h6>
+      <form  method="post" action="">
+        {% csrf_token %}
+        <p>Evaluation titre :</p><p>{{ form.evaluation_titre}}</p>
+        <p>Nom :</p><p>{{ form.nom_contributeur}}</p>
+        <p>Nom evalué: </p><p>{{ form.nom_evalue }}</p>
+        <p>Question 1 : Cet agent est-il dans une posture de conseil, d’appui à la décision ?</p>
+        <p>{{ form.note_1 }}</p><br>
+        <p>Souhaitez vous développer ? Donnez quelques exemples ?</p>
+        <p>Sinon, vous pouvez mentionner RAS dans le cadre ci-dessous.</p>
+        {{ form.commentaire_note_1 }}<hr>
+        <p>Question 2 : A-t-il saisi les enjeux de votre structure, de vos projets, et des éventuelles 
+          répercussions stratégiques de son action sur la vôtre ? : </p>
+          <p>{{ form.note_2 }}</p>
+          <br> <p>Souhaitez vous développer ? Donnez quelques exemples ?</p>
+          <p>Sinon, vous pouvez mentionner RAS dans le cadre ci-dessous.</p>
+        {{ form.commentaire_note_2 }}<hr>
+        <p>Question 3 : L'agent est-il en capacité de mobiliser des ressources utiles à vos projets : 
+          moyens humains, financiers, juridiques, méthodologiques ... ?
+          <br>A-t-il une réelle plus-value ? : </p>
+          <p>{{ form.note_3}}</p><br>
+          <p>Souhaitez vous développer ? Donnez quelques exemples ?</p>
+          <p>Sinon, vous pouvez mentionner RAS dans le cadre ci-dessous.</p>
+          {{ form.commentaire_note_3 }}<hr>
+        <p>Question 4 : L'agent assure-t-il un suivi efficace dans le temps de vos projets communs, avec des points réguliers ? :</p>
+        <p>{{ form.note_4 }}</p>
+        <br> <p>Souhaitez vous développer ? Donnez quelques exemples ?</p>
+        <p>Sinon, vous pouvez mentionner RAS dans le cadre ci-dessous.</p>
+        {{ form.commentaire_note_4 }}<hr>
+        <p>Question 5 : L'intervention de l'agent a-t-elle permis d'obtenir de bons résultats sur vos projets ? :</p>
+        <p>{{ form.note_5 }}</p>
+        <br> <p>Souhaitez vous développer ? Donnez quelques exemples ?</p>
+        <p>Sinon, vous pouvez mentionner RAS dans le cadre ci-dessous.</p>
+        {{ form.commentaire_note_5 }}<hr>
+        <p>Question 6 : Pour conclure comment évaluez-vous le travail de l'évalué ? </p>
+         <p>{{ form.note_6}}</p><br> <p>Souhaitez vous développer ? Donnez quelques exemples ?</p>
+         <p>Sinon, vous pouvez mentionner RAS dans le cadre ci-dessous.</p>
+         {{ form.commentaire_note_6 }}<hr>
+         <button class="fr-btn" type="submit">Enregistrer</button>
+    
+      </form>
+      </div>
+      <br>
+    </div>
+      </div>
+
+ 
+{% endblock %}

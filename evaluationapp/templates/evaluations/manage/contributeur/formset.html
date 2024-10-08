@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}
+ Edit "{{ evaluation.titre }}"
+{% endblock %}
+{% block content %}
+<br><br>
+ <div class="container-fluid" style="margin-left: 100px;">
+   <h4>Editer "{{ evaluation.titre }}"</h4>
+    <h6>Evaluation Correspondants</h6>
+ <form method="post" style="margin-left: 40px;">
+    {% csrf_token %}
+    {{ formset.management_form }}
+
+    <table>
+      {% for form in formset %}
+      <tr><td><br><ul class="list-inline">{{ form.as_ul }}</ul><br></td></tr>
+      {% endfor %}
+      
+    </table>
+    <br>
+    <button class="fr-btn" type="submit">Enregistrer Contributeur</button>
+ </form>
+ </div>
+{% endblock %}

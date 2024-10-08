@@ -1,0 +1,175 @@
+
+<!-- pdf_template.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Charts and Table</title>
+</head>
+<body>
+    <div class="container-fluid" style="margin-left:100px;margin-top:40px;">
+    
+        <div class="fr-table fr-table--bordered">
+            <h1>Les résultats</h1><br>
+            <hr>
+            <h6>Les Contributeurs Bénéficiaires</h6>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th scope="col">Nom de l'évalué</th>
+                        <th scope="col">Note 1</th>
+                        <th scope="col">Commentaires 1</th>
+                        <th scope="col">Note 2</th>
+                        <th scope="col">Commentaires 2</th>
+                        <th scope="col">Note 3</th>
+                        <th scope="col">Commentaires 3</th>
+                        <th scope="col">Note 4</th>
+                        <th scope="col">Commentaires 4</th>
+                        <th scope="col">Note 5</th>
+                        <th scope="col">Commentaires 5</th>
+                        <th scope="col">Note 6</th>
+                        <th scope="col">Commentaire</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for x in resultats_beneficiaire %}
+                    <tr>
+                        <td>{{ x.id }}</td>
+                        <td>{{ x.nom_evalue }}</td>
+                        <td>{{ x.note_1 }}</td>
+                        <td>{{ x.commentaire_note_1}}</td>
+                        <td>{{ x.note_2 }}</td>
+                        <td>{{ x.commentaire_note_2}}</td>
+                        <td>{{ x.note_3 }}</td>
+                        <td>{{ x.commentaire_note_3}}</td>
+                        <td>{{ x.note_4 }}</td>
+                        <td>{{ x.commentaire_note_4}}</td>
+                        <td>{{ x.note_5 }}</td>
+                        <td>{{ x.commentaire_note_5}}</td>
+                        <td>{{ x.note_6 }}</td>
+                        <td>{{ x.commentaire_note_6}}</td>
+                        <td>{{ x.commentaire }}</td>
+                        
+                    </tr>
+                    {% empty %}
+                    <p>Il n'y a aucun résultats pour les Bénéficiaire</p>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <br>
+            <p>Votre note moyenne attibuée par les contributeurs bénéficiaire est de : </p>
+            {% for item in note_B %}
+            {{ item }} 
+            {% endfor %}
+            <p>Soit au total de {{ globale_B }}</p>
+            <br><br>
+            <h6>Les Contributeurs Collegue en lien fonctionnel</h6>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nom de l'évalué</th>
+                        <th>Note 1</th>
+                        <th>Commentaires 1</th>
+                        <th>Note 2</th>
+                        <th>Commentaires 2</th>
+                        <th>Note 3</th>
+                        <th>Commentaires 3</th>
+                        <th>Note 4</th>
+                        <th>Commentaires 4</th>
+                        <th>Note 5</th>
+                        <th>Commentaires 5</th>
+                        <th>Note 6</th>
+                        <th>Commentaire</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for x in resultats_agent %}
+                    <tr>
+                        <td>{{ x.id }}</td>
+                        <td>{{ x.nom_evalue }}</td>
+                        <td>{{ x.note_1 }}</td>
+                        <td>{{ x.commentaire_note_1}}</td>
+                        <td>{{ x.note_2 }}</td>
+                        <td>{{ x.commentaire_note_2}}</td>
+                        <td>{{ x.note_3 }}</td>
+                        <td>{{ x.commentaire_note_3}}</td>
+                        <td>{{ x.note_4 }}</td>
+                        <td>{{ x.commentaire_note_4}}</td>
+                        <td>{{ x.note_5 }}</td>
+                        <td>{{ x.commentaire_note_5}}</td>
+                        <td>{{ x.note_6 }}</td>
+                        <td>{{ x.commentaire_note_6}}</td>
+                        <td>{{ x.commentaire }}</td>
+                    </tr>
+                    {% empty %}
+                    <p>Il n'y a aucun résultats pourles Collègues en lien Fonctionnel</p>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <br>
+            <p>Votre note moyenne attibuée par les contributeurs en lien fonctionnel est de : </p>
+            {% for item in note_C %}
+            {{ item }} 
+            {% endfor %}
+      
+            <h6>Les Contributeurs Agent Encadré</h6>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nom de l'évalué</th>
+                        <th>Note 1</th>
+                        <th>Commentaires 1</th>
+                        <th>Note 2</th>
+                        <th>Commentaires 2</th>
+                        <th>Note 3</th>
+                        <th>Commentaires 3</th>
+                        <th>Note 4</th>
+                        <th>Commentaires 4</th>
+                        <th>Note 5</th>
+                        <th>Commentaires 5</th>
+                        <th>Note 6</th>
+                        <th>Commentaire</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for x in resultats_encadre %}
+                    <tr>
+                        <td>{{ x.id }}</td>
+                        <td>{{ x.nom_evalue }}</td>
+                        <td>{{ x.note_1 }}</td>
+                        <td>{{ x.commentaire_note_1}}</td>
+                        <td>{{ x.note_2 }}</td>
+                        <td>{{ x.commentaire_note_2}}</td>
+                        <td>{{ x.note_3 }}</td>
+                        <td>{{ x.commentaire_note_3}}</td>
+                        <td>{{ x.note_4 }}</td>
+                        <td>{{ x.commentaire_note_4}}</td>
+                        <td>{{ x.note_5 }}</td>
+                        <td>{{ x.commentaire_note_5}}</td>
+                        <td>{{ x.note_6 }}</td>
+                        <td>{{ x.commentaire_note_6}}</td>
+                        <td>{{ x.commentaire }}</td>
+                        
+                    </tr>
+                    {% empty %}
+                    <p>Il n'y a aucun résultats pour les Encadrés</p>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <br>
+            <p>Votre note moyenne attibuée par les contributeurs Agents encadrés est de : </p>
+            {% for item in note_A %}
+            {{ item }} 
+            {% endfor %}
+            <p>Soit au total de {{ globale_A }}</p>
+            <br>
+            
+    </div>
+</body>
+</html>

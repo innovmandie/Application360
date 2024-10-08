@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block title %}Mes Evaluations{% endblock %}
+{% block content %}
+<div class="container-fluid" style="margin-left:100px;margin-top:40px; height:800px">
+        <h4>Les répondants sollicités</h4>
+    {% for item in repondant %}
+    <p style="color: #6a6af4"><strong>Catégorie : </strong>{{ item.titre }}</p>
+    <p><strong>Nom 1 : </strong>{{ item.repondant1_nom}} <strong>Prénom 1 : </strong>{{ item.repondant1_prenom}} <strong>Mail : </strong>{{ item.repondant1_mail}}</p>
+    <p><strong>Nom 2 : </strong>{{ item.repondant2_nom}} <strong>Prénom 2 : </strong>{{ item.repondant2_prenom}} <strong>Mail : </strong>{{ item.repondant2_mail}}</p>
+    {% endfor %}
+    </div>
+    
+    <br>
+    <div style="margin-left:100px">
+        <form method="post">
+            {% for element in form %}
+            {%  csrf_token %}
+            {{ element.nom }}
+            {{ element.email }}
+            {%  endfor %}
+        
+            <button class="fr-btn" type="submit">Envoyer mail</button>
+        </form>
+        <h4>Mails envoyés</h4><br>
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Sujet</th>
+                <th>envoyé à</th>
+                <th>temps</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for x in mydata %}
+            <tr>
+                <td>{{ x.id }}</td>
+                <td>{{ x.sujet }}</td>
+                <td>{{ x.email }}</td>
+                <td>{{ x.created_at }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    </div>
+
+  
+    <br><br>
+    </div>
+
+ 
+{% endblock %}

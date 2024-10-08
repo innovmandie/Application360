@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block title %}Mes Evaluations{% endblock %}
+{% block content %}
+<div class="container-fluid" style="z-index : -1;margin-left:100px;margin-top:40px;">
+      <div class="row">
+        <div class="col-12 col-md-8">
+          <p style="text-align: justify"><strong>6 contributeurs</strong> vont être sollicités par mail pour répondre chacun à <strong>6 questions</strong> ouvertes concernant votre travail de l'année. Leurs réponses seront anonymes. Ils ont la consigne de faire un retour constructif et bienveillant.
+            Merci de renseigner les Noms, Prénoms et adresses mails des 6 contributeurs que vous avez choisi : <br>
+            <ul>
+              <li style="text-align: justify">2 dans la catégorie <strong>"bénéficiaire"</strong> (un bénéficiaire est par exemple l'une des structures pour laquelle vous avez travaillé cette année ou une structure partenaire)</li>
+              <li style="text-align: justify">2 dans la catégorie <strong>"collègues en lien fonctionnel" </strong>(un collègue en lien fonctionnel est par exemple l'un de vos collègues sur le même niveau hiérarchique que vous : par exemple, si vous êtes adjoint au SGAR, l'autre adjoint au SGAR).</li>
+              <li style="text-align: justify">2 dans la catégorie <strong>"agent encadré"</strong> (par exemple, un chef de service ou un chargé de mission directement en lien hiérarchique avec vous).</li>
+            </ul>  
+            <p style="text-align: justify">Vous seul serez destinataire des résultats. Les résultats ne seront transmis que si les 2 répondants d'une catégorie ont apporté leur réponse.
+              Un délais de 15 jours est programmé. Au delà, l'évaluation est considérée comme close.</p>
+            </p>
+        </div>
+        <div class="col-sm">
+        </div>
+      </div>
+       <h3 style="margin:20px">Mon évaluation</h3>
+     {% for evaluation in object_list %}
+     <div class="card shadow-lg p-3 mb-5 bg-white rounded align-items-center" style="width:570px;height:457px; margin:10px; border: 2px solid #a8a8d8; z-index :1">
+       <br><br>
+       <h3>{{ evaluation.titre }}</h3>
+        <h6>Evalué : {{ evaluation.evalue_nom }} {{ evaluation.evalue_prenom }}</h6>
+        <h6>Poste évalué : {{ evaluation.evalue_poste }} Année: {{ evaluation.time }}</h6>
+        <p>Date de création : {{ evaluation.date_creation}}</p>
+       <div class="d-flex justify-content-center">
+        <p>
+          <a href="{% url 'evaluation_contributeur_update' evaluation.id %}" style="background-color: #6a6af4; width: 400px;color:white; padding:4px">Indiquez vos contributeurs</a>
+           <a href="{% url 'evaluation_edit' evaluation.id %}" style="background-color: #58bad8; width: 400px;color:white; padding:4px">Editer l'évaluation</a>
+           <a href="{% url 'evaluation_delete' evaluation.id %}" style="background-color: #e6ad32; width: 400px;color:white; padding:4px">Effacer l'évaluation</a> </p></div>     
+           <h6><a href="{% url 'evaluation_tableaudebord' evaluation.id %}" class="fr-btn">Résumé</a></h6>
+           <h6><a href="{% url 'evaluation_resultats' evaluation.id %}" class="fr-btn">RESULTATS</a></h6>
+       <br>
+       <a href="{% url 'resultatspdf' evaluation.id %}" style="background-color: #6a6af4; width: 400px;color:white; padding:4px">Créer un pdf</a>
+{% empty %}
+<p>Il n'y a aucune évaluation</p>
+{% endfor %}
+<br>
+   
+                
+    </div>
+    <a href="{% url 'evaluation_create' %}" class="fr-btn">Créer une évaluation</a></div>
+    </div>
+    <p>
+    </div>
+     </p>
+  </div>
+</div>
+
+ 
+{% endblock %}

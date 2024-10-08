@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Index Page{% endblock %}
+{% block content %}
+<div class="container-fluid" style="margin-left:100px">
+    <br><br>
+    <h4>Contributeur</h4>
+    <div class="container">
+      <div class="fr-col">
+        <div class="col-demo" style="margin:40px">
+          {% if user.is_authenticated %}
+          Bonjour {{ user.username }}!
+          <h4><a href="{% url 'logout' %}">Déconnexion</a></h4>
+          <h4>Ou vous pouvez retourner à la page d'accueil</h4>
+        {% else %}
+          <h4>Connectez-vous à votre compte</h4>
+          <a href="{% url 'login' %}">Connexion</a>
+          
+        {% endif %}      
+        </div>
+ </div>
+ </div>
+    
+</div>
+ 
+{% endblock %}

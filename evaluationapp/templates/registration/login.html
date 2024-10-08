@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Log-in{% endblock %}
+{% block content %} 
+ <div class="container-fluid" style="margin-left: 140px;">
+   <br>
+    <div class="row">
+      <h3>Connexion</h3>
+      <div class="col-sm">
+         {% if form.errors %}
+         <p>Si l'identifiant et le mot de passe ne marchent pas. Essayez encore une fois.</p>
+         {% else %}
+         <p>Remplissez le formulaire pour vous connecter :</p>
+         {% endif %}
+         <form action="{% url 'login' %}" method="post" class="login-form">
+            {% csrf_token %}
+            Nom : <br><br>{{ form.username}}<br><br>
+            Mot de passe : <br><br>{{ form.password }}<br><br>
+         <input type="hidden" name="next" value="{{ next }}" />
+         <button class="fr-btn" type="submit">Connexion</button>
+         </form>
+
+    </div>
+ </div>
+    
+</div>
+ 
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}
+ {% if object %}
+ Edit course "{{ object.titre }}"
+ {% else %}
+Créer une nouvelle évaluation
+ {% endif %}
+{% endblock %}
+{% block content %}
+<div class="container-fluid" style="margin-left: 200px; margin-top: 40px">
+    <div class="shadow-lg p-3 mb-5 bg-white rounded align-items-center" style="width:670px;height:800pxpx; margin:60px">
+    <section class=" text-center text-lg-start"> 
+        <div class="row g-0 d-flex align-items-center">
+            <h1>
+                {% if object %}
+                Editer évaluation"{{ object.titre }}"
+                {% else %}
+               Créer une évaluation
+                {% endif %}
+                </h1>
+                <div class="module">
+                <h2>Evaluation info</h2>
+                <form method="post">
+                {{ form.as_p }}
+                {% csrf_token %}
+                
+                <button class="fr-btn" type="submit">Enregistrer évaluation</button>
+                </form>
+                </div>
+            </div>
+            </section>
+    
+    </div>
+</div>
+
+{% endblock %}
